@@ -32,6 +32,7 @@ Ext.define('login.view.Logwin', {
         type: 'logwin'
     },
     height: 419,
+    id: 'logfrom',
     resizable: false,
     width: 396,
     layout: 'fit',

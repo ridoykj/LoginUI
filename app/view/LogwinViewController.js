@@ -18,25 +18,21 @@ Ext.define('login.view.LogwinViewController', {
     alias: 'controller.logwin',
 
     onSignIn: function(button, e, eOpts) {
-        //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Geting data on the from <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
         var username = Ext.getCmp('i_userid').value;
         var password = Ext.getCmp('i_pass').value;
-        var getdataserver = '';
 
-        // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Server Connection <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-        var httpc = new XMLHttpRequest();
-        //var url='https://ptsv2.com/t/26sh3-1578967376/post';
-        var url ='php/api.php';
-        httpc.open("POST", url, true);
-
-        httpc.onreadystatechange = (e) => {  // check the connection
-            if(httpc.readyState == 4 && httpc.status == 200)
+        Ext.Ajax.request({
+            url: 'php/api.php',
+            method: 'POST',
+            params: {'username': username, 'password': password },
+            headers:
             {
-                console.log(httpc.responseText);
-                getdataserver = httpc.responseText;
-                if(getdataserver == "rid777")
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+
+            success: function(response, opts) {
+                var getdataserver = response.responseText;
+                if(getdataserver === "rid777")
                 {
                     // >>>>>>>>>>>>>>>>> If Not Found or any error <<<<<<<<<<<<<<<<<
                     var vv = Ext.getCmp('l_status').setText('Status: Wrong user name and password');
@@ -50,13 +46,14 @@ Ext.define('login.view.LogwinViewController', {
 
                     var v = Ext.create('login.view.userinfovew',{});
                     v.show();
-                    this.getView().destroy();
+                    Ext.getCmp('logfrom').destroy();
                 }
-            }
-        };
+            },
 
-        httpc.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-        httpc.send("username="+username+"&password="+password);
+            failure: function(response, opts) {
+                console.log('server-side failure with status code ' + response.status);
+            }
+        });
     },
 
     onSignUp: function(button, e, eOpts) {

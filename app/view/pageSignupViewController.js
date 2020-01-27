@@ -34,21 +34,27 @@ Ext.define('login.view.pageSignupViewController', {
             Ext.getCmp('is_status').setText('Status: Please Read our trams and condtion');
         }
         else{
-            var httpc = new XMLHttpRequest();
-            //var url='https://ptsv2.com/t/26sh3-1578967376/post';
-            var url ='php/signup.php';
-            httpc.open("POST", url, true);
 
-            httpc.onreadystatechange = (e) => {  // check the connection
-                if(httpc.readyState == 4 && httpc.status == 200)
+            Ext.Ajax.request({
+                url: 'php/signup.php',
+                method: 'POST',
+                params: {'userid': username, 'password': password },
+                headers:
                 {
-                    var d = httpc.responseText;
-                    console.log(d);
-                }
-            };
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
 
-            httpc.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-            httpc.send("userid="+username+"&password="+password);
+                success: function(response, opts) {
+                    var d = response.responseText;
+                    console.log(d);
+                    Ext.getCmp('is_status').setText('Status: Profile successfully created');
+                },
+
+                failure: function(response, opts) {
+                    console.log('server-side failure with status code ' + response.status);
+                }
+            });
+
         }
     },
 
@@ -59,19 +65,24 @@ Ext.define('login.view.pageSignupViewController', {
 
     onUseridCheck: function(button, e, eOpts) {
         var username = Ext.getCmp('is_userid').value;
-        var httpc = new XMLHttpRequest();
-        var url ='php/query.php';
-        httpc.open("POST", url, true);
-        httpc.onreadystatechange = (e) => {  // check the connection
-            if(httpc.readyState == 4 && httpc.status == 200)
+
+        Ext.Ajax.request({
+            url: 'php/query.php',
+            method: 'POST',
+            params: {'userid': username},
+            headers:
             {
-                var d = httpc.responseText;
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+
+            success: function(response, opts) {
+                var d = response.responseText;
                 console.log(d);
                 if(username === '')
                 {
                     Ext.getCmp('is_status').setText('Status: Please Enter User id');
                 }
-                else if(httpc.responseText != 'true')
+                else if(d != 'true')
                 {
                     Ext.getCmp('is_status').setText('Status: Found New User id');
                     Ext.getCmp('is_submit').setDisabled(false);
@@ -82,11 +93,12 @@ Ext.define('login.view.pageSignupViewController', {
                 {
                     Ext.getCmp('is_status').setText('Status: The UserID already exists');
                 }
-            }
-        };
+            },
 
-        httpc.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-        httpc.send("userid="+username);
+            failure: function(response, opts) {
+                console.log('server-side failure with status code ' + response.status);
+            }
+        });
     }
 
 });
