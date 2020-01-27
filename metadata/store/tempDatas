@@ -1,0 +1,45 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "tempdatas",
+        "designer|userClassName": "tempDatas",
+        "model": "tempData",
+        "storeId": "tempDatas"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
+    "designerId": "9cedb983-5a3b-43d1-8e4c-81d51e7b86f6",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Memory",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyMemoryProxy",
+            "designerId": "f9db0932-981b-47ab-9935-ed558b7d85b1",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader",
+                    "designerId": "6e6719ce-56a1-4e5e-8ddc-e58d9eee7e43"
+                }
+            ]
+        }
+    ]
+}

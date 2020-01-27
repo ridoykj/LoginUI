@@ -1,0 +1,66 @@
+{
+    "name": "LoginUI",
+    "settings": {
+        "cmd": {
+            "license": "commercial",
+            "cmdVersion": "7.0.0.40",
+            "frameworkVersion": "6.5.3.57"
+        },
+        "urlPrefixTemplate": "http://localhost:{port}/{path}",
+        "urlPrefix": "http://localhost:53088/",
+        "canvasControls": {
+            "viewportSize": {
+                "name": "Auto Expand",
+                "builtIn": true,
+                "height": null,
+                "width": null
+            }
+        },
+        "exportPath": "D:/log",
+        "spacesToIndent": 4,
+        "sdkPath": "",
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": true,
+        "generateArchitectVersion": true,
+        "installStatus": "Not Installed",
+        "displayfield-ExtBox1-1137-inputEl": "a new version of the framework is available"
+    },
+    "xdsVersion": "4.2.6",
+    "xdsBuild": 425,
+    "schemaVersion": 1,
+    "upgradeVersion": 310000000001,
+    "framework": "ext65",
+    "viewOrderMap": {
+        "view": [
+            "d7db5a26-e2ac-4d25-86be-7fa64a95636a",
+            "2a4e8d68-9d9c-473a-a9d8-e28b78c069ab",
+            "dc7af833-620f-4304-a785-cb78450af40d",
+            "4574d608-ccd7-43ef-89b4-a2ecb9a70dc1",
+            "cc434ef0-3ae8-4a7d-8662-7dad7ea65229",
+            "273f55bd-8458-4c85-9787-6cb005d56824",
+            "f976cb51-8228-43b2-a085-135ca3c81a3a",
+            "d2ea9691-2e13-4602-817c-a3fb96e55ad5",
+            "790e69c0-ed5d-42ad-811a-dd0b13e96968",
+            "08f31d68-7111-44cc-88b8-749ddab2c244",
+            "0f72b372-82a8-4368-839b-0247ddf8dd87",
+            "d2f81c61-11d1-4d13-a21d-f8cdf04cdd22"
+        ],
+        "store": [
+            "9cedb983-5a3b-43d1-8e4c-81d51e7b86f6"
+        ],
+        "controller": [],
+        "model": [
+            "455e6d07-caa3-41d1-bd5a-ea7e1bbf89a3"
+        ],
+        "resource": [
+            "4d418ff9-c24e-4a1e-8c5f-479f142469fa",
+            "dce0bb9f-b496-4148-9bf4-3208a3d8e596",
+            "830899e1-87b1-49c9-8233-957610cc6f17"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

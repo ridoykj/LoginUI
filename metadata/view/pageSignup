@@ -1,0 +1,398 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "pagesignup",
+        "designer|userClassName": "pageSignup",
+        "height": 250,
+        "layout": "center",
+        "width": 400
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "layout": "string",
+        "width": "auto"
+    },
+    "name": "MyViewport1",
+    "designerId": "08f31d68-7111-44cc-88b8-749ddab2c244",
+    "viewControllerInstanceId": "d2f81c61-11d1-4d13-a21d-f8cdf04cdd22",
+    "viewModelInstanceId": "0f72b372-82a8-4368-839b-0247ddf8dd87",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "closable": true,
+                "designer|snapToGrid": 10,
+                "height": 491,
+                "id": "signUpPage",
+                "layout": "absolute",
+                "title": "Registration From",
+                "width": 466
+            },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "designer|snapToGrid": "number",
+                "height": "auto",
+                "id": "string",
+                "layout": "string",
+                "title": "string",
+                "width": "auto",
+                "closable": "boolean"
+            },
+            "name": "MyForm2",
+            "designerId": "aa6e2fe7-24e9-4e9c-a73d-22f93338601b",
+            "cn": [
+                {
+                    "type": "Ext.Img",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "alt": "ridoykj",
+                        "height": 101,
+                        "layout|x": 180,
+                        "layout|y": 10,
+                        "src": "ico/profile.png",
+                        "width": 106
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "src": "uri",
+                        "width": "auto",
+                        "alt": "string"
+                    },
+                    "name": "MyImg1",
+                    "designerId": "3d5f0f7a-778a-4668-baeb-788736766e20"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "height": 35,
+                        "id": "is_submit",
+                        "layout|x": 189,
+                        "layout|y": 329,
+                        "text": "Submit",
+                        "width": 94
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto",
+                        "disabled": "boolean",
+                        "id": "string"
+                    },
+                    "name": "MyButton3",
+                    "designerId": "09b220d6-7c78-4f65-b268-1340091b5dca",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onSubmit",
+                                "implHandler": [
+                                    "var username = Ext.getCmp('is_userid').value;",
+                                    "var password = Ext.getCmp('is_pass').value;",
+                                    "var repassword = Ext.getCmp('is_repass').value;",
+                                    "if(username === '' && password === '')",
+                                    "{",
+                                    "    Ext.getCmp('is_status').setText('Status: Please Fill userid and password');",
+                                    "}",
+                                    "else if(password != repassword)",
+                                    "{",
+                                    "    Ext.getCmp('is_status').setText('Status: Please retype same Password');",
+                                    "}",
+                                    "else if(!Ext.getCmp('is_ck').getValue())",
+                                    "{",
+                                    "    Ext.getCmp('is_status').setText('Status: Please Read our trams and condtion');",
+                                    "}",
+                                    "else{",
+                                    "        var httpc = new XMLHttpRequest();",
+                                    "        //var url='https://ptsv2.com/t/26sh3-1578967376/post';",
+                                    "        var url ='php/signup.php';",
+                                    "        httpc.open(\"POST\", url, true);",
+                                    "",
+                                    "        httpc.onreadystatechange = (e) => {  // check the connection",
+                                    "            if(httpc.readyState == 4 && httpc.status == 200)",
+                                    "            {",
+                                    "                var d = httpc.responseText;",
+                                    "                console.log(d);",
+                                    "            }",
+                                    "        };",
+                                    "",
+                                    "        httpc.setRequestHeader('Content-Type','application/x-www-form-urlencoded');",
+                                    "        httpc.send(\"userid=\"+username+\"&password=\"+password);",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onSubmit",
+                            "designerId": "c7a30850-8bce-4337-831b-0a441f3785de"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": " I am read all terms and conditions",
+                        "disabled": true,
+                        "id": "is_ck",
+                        "layout|x": 130,
+                        "layout|y": 296
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "id": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "disabled": "boolean"
+                    },
+                    "name": "MyCheckbox",
+                    "designerId": "0501ce6e-a882-4f18-b4c9-d8a037935b77"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "UserID",
+                        "id": "is_userid",
+                        "layout|x": 53,
+                        "layout|y": 183
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "layout|x": "number",
+                        "layout|y": "number"
+                    },
+                    "name": "MyTextField4",
+                    "designerId": "bb73a464-db58-4dfd-89dd-b0a4a61ee281"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "fieldLabel": "Retype Password",
+                        "id": "is_repass",
+                        "inputType": "password",
+                        "layout|x": 54,
+                        "layout|y": 254
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "inputType": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "disabled": "boolean"
+                    },
+                    "name": "MyTextField2",
+                    "designerId": "cb891472-ec2a-4bc1-bb7b-baf005dbca09"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "fieldLabel": "Password",
+                        "id": "is_pass",
+                        "inputType": "password",
+                        "layout|x": 53,
+                        "layout|y": 218
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "id": "string",
+                        "inputType": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "disabled": "boolean"
+                    },
+                    "name": "MyTextField3",
+                    "designerId": "ef131ac2-1563-4839-b942-ad62dd8a3480"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 42,
+                        "id": "is_status",
+                        "layout|x": 60,
+                        "layout|y": 140,
+                        "text": "Status:",
+                        "width": 329
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "id": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyLabel1",
+                    "designerId": "aa07145b-63c3-4734-8bdd-548283d97bdb"
+                },
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onSignUpPageClose",
+                        "implHandler": [
+                            "var show = Ext.widget('logwin');",
+                            "show.show();"
+                        ],
+                        "name": "close",
+                        "scope": "me"
+                    },
+                    "configAlternates": {
+                        "fn": "string",
+                        "implHandler": "code",
+                        "name": "string",
+                        "scope": "string"
+                    },
+                    "name": "onSignUpPageClose",
+                    "designerId": "de5733f3-d081-4a44-9e9f-dba08cfc8f8e"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 30,
+                        "layout|x": 340,
+                        "layout|y": 180,
+                        "text": "Check",
+                        "width": 80
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyButton4",
+                    "designerId": "c32c9dee-a944-489c-a778-bfcf6684a818",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onUseridCheck",
+                                "implHandler": [
+                                    "var username = Ext.getCmp('is_userid').value;",
+                                    "var httpc = new XMLHttpRequest();",
+                                    "var url ='php/query.php';",
+                                    "httpc.open(\"POST\", url, true);",
+                                    "httpc.onreadystatechange = (e) => {  // check the connection",
+                                    "    if(httpc.readyState == 4 && httpc.status == 200)",
+                                    "    {",
+                                    "        var d = httpc.responseText;",
+                                    "        console.log(d);",
+                                    "        if(username === '')",
+                                    "            {",
+                                    "                Ext.getCmp('is_status').setText('Status: Please Enter User id');",
+                                    "            }",
+                                    "        else if(httpc.responseText != 'true')",
+                                    "        {",
+                                    "            Ext.getCmp('is_status').setText('Status: Found New User id');",
+                                    "            Ext.getCmp('is_submit').setDisabled(false);",
+                                    "            Ext.getCmp('is_pass').setDisabled(false);",
+                                    "            Ext.getCmp('is_repass').setDisabled(false);",
+                                    "            Ext.getCmp('is_ck').setDisabled(false);",
+                                    "        }else",
+                                    "        {",
+                                    "            Ext.getCmp('is_status').setText('Status: The UserID already exists');",
+                                    "        }",
+                                    "    }",
+                                    "};",
+                                    "",
+                                    "httpc.setRequestHeader('Content-Type','application/x-www-form-urlencoded');",
+                                    "httpc.send(\"userid=\"+username);"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onUseridCheck",
+                            "designerId": "ab2aa5e1-baf4-483c-b0ff-770c00c538ba"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

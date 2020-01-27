@@ -1,0 +1,121 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userAlias": "myviewport",
+        "designer|userClassName": "MyViewport",
+        "height": 250,
+        "layout": "center",
+        "width": 400
+    },
+    "configAlternates": {
+        "designer|initialView": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "layout": "string",
+        "width": "auto"
+    },
+    "name": "MyViewport",
+    "designerId": "d7db5a26-e2ac-4d25-86be-7fa64a95636a",
+    "viewControllerInstanceId": "dc7af833-620f-4304-a785-cb78450af40d",
+    "viewModelInstanceId": "2a4e8d68-9d9c-473a-a9d8-e28b78c069ab",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "animateShadow": true,
+                "bodyPadding": 10,
+                "container|align": "center",
+                "container|pack": "end",
+                "height": 479,
+                "html": "<h1>Configration</h1>     <br>     <h4>     >> 1st. Move (upload) all file on your server direactory (server: xampp, onlineServer etc.). <br>     >> 2nd. Start the Server <br>     >> 3rd. execute SQL command (mysql) whice have \"README/sqlCommand.txt\" Directory <br>     >> 4th. if your mysql is not user = 'root' and password = '' please edit api.php file whice have \"PHP\" Directory and set your password <br>     >> 5th. First login username = 'ridoy' and password = 'kumar' <br>     >> 6th. You Can Register     </h4>",
+                "itemId": "configration",
+                "layout": "vbox",
+                "shadow": "drop",
+                "shadowOffset": 4,
+                "title": "Developer:- ridoykj@gmail.com",
+                "width": 662
+            },
+            "configAlternates": {
+                "animateShadow": "boolean",
+                "bodyPadding": "auto",
+                "container|align": "string",
+                "container|pack": "string",
+                "height": "auto",
+                "html": "string",
+                "layout": "string",
+                "shadow": "auto",
+                "shadowOffset": "number",
+                "title": "string",
+                "width": "auto",
+                "itemId": "string"
+            },
+            "name": "MyForm",
+            "designerId": "de5c851a-bc2c-4335-8c8c-655fb3e57464",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 43,
+                        "itemId": "continue",
+                        "text": "Continue",
+                        "width": 167
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "itemId": "string",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyButton",
+                    "designerId": "b946b541-1b0b-4816-acf4-5c5fa597b5ff",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onContinueClick",
+                                "implHandler": [
+                                    "console.log('I am work');",
+                                    "var show = Ext.widget('logwin');",
+                                    "show.show();",
+                                    "this.getView().destroy();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onContinueClick",
+                            "designerId": "e9d3fe05-c193-4bb8-aff5-191afa54b283"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "tempData"
+        ],
+        "name": "login",
+        "stores": [
+            "tempDatas"
+        ],
+        "views": [
+            "MyViewport",
+            "Logwin",
+            "userinfovew",
+            "pageSignup"
+        ]
+    },
+    "configAlternates": {
+        "controllers": "typedarray",
+        "name": "string",
+        "views": "typedarray",
+        "models": "typedarray",
+        "stores": "typedarray"
+    },
+    "name": "Application",
+    "designerId": "application"
+}

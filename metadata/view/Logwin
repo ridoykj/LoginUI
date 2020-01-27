@@ -1,0 +1,329 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "logwin",
+        "designer|userClassName": "Logwin",
+        "height": 419,
+        "layout": "fit",
+        "resizable": false,
+        "title": "Login",
+        "width": 396
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "layout": "string",
+        "title": "string",
+        "width": "auto",
+        "closable": "boolean",
+        "resizable": "boolean"
+    },
+    "name": "MyWindow",
+    "designerId": "4574d608-ccd7-43ef-89b4-a2ecb9a70dc1",
+    "viewControllerInstanceId": "273f55bd-8458-4c85-9787-6cb005d56824",
+    "viewModelInstanceId": "cc434ef0-3ae8-4a7d-8662-7dad7ea65229",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "designer|snapToGrid": 10,
+                "dock": null,
+                "height": 314,
+                "layout": "absolute",
+                "width": 470
+            },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "dock": "string",
+                "height": "auto",
+                "width": "auto",
+                "designer|snapToGrid": "number",
+                "layout": "string"
+            },
+            "name": "MyForm1",
+            "designerId": "31df4a74-6c32-424e-a72e-42b405ffec2f",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "UserID",
+                        "id": "i_userid",
+                        "layout|anchor": "100%",
+                        "layout|x": 10,
+                        "layout|y": 180,
+                        "width": 336
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "layout|anchor": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "width": "auto",
+                        "id": "string"
+                    },
+                    "name": "MyTextField",
+                    "designerId": "92f8e69e-67c7-4a0f-91c8-6b4dcf0eab1c"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Password",
+                        "id": "i_pass",
+                        "inputType": "password",
+                        "layout|anchor": "100%",
+                        "layout|x": 10,
+                        "layout|y": 230,
+                        "width": 347
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "layout|anchor": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "width": "auto",
+                        "id": "string",
+                        "inputType": "string"
+                    },
+                    "name": "MyTextField1",
+                    "designerId": "fb557495-0c24-41cd-b84e-8a998a829b9e"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 30,
+                        "layout|x": 270,
+                        "layout|y": 340,
+                        "text": "Sign In",
+                        "width": 100
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "height": "auto",
+                        "width": "auto"
+                    },
+                    "name": "MyButton1",
+                    "designerId": "d92d2fb3-3dfd-4e4c-8e72-9d95342956a6",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onSignIn",
+                                "implHandler": [
+                                    "//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Geting data on the from <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                                    "",
+                                    "        var username = Ext.getCmp('i_userid').value;",
+                                    "        var password = Ext.getCmp('i_pass').value;",
+                                    "        var getdataserver = '';",
+                                    "",
+                                    "        // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Server Connection <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                                    "",
+                                    "        var httpc = new XMLHttpRequest();",
+                                    "        //var url='https://ptsv2.com/t/26sh3-1578967376/post';",
+                                    "        var url ='php/api.php';",
+                                    "        httpc.open(\"POST\", url, true);",
+                                    "",
+                                    "        httpc.onreadystatechange = (e) => {  // check the connection",
+                                    "            if(httpc.readyState == 4 && httpc.status == 200)",
+                                    "            {",
+                                    "                console.log(httpc.responseText);",
+                                    "                getdataserver = httpc.responseText;",
+                                    "                if(getdataserver == \"rid777\")",
+                                    "                {",
+                                    "                    // >>>>>>>>>>>>>>>>> If Not Found or any error <<<<<<<<<<<<<<<<<",
+                                    "                    var vv = Ext.getCmp('l_status').setText('Status: Wrong user name and password');",
+                                    "                    alert('Wrong user name and password');",
+                                    "                }else",
+                                    "                {",
+                                    "                    // >>>>>>>>>>>>>>>>> If No error and connection is successful <<<<<<<<<<<<<<<<<",
+                                    "                    var sto = Ext.getStore('tempDatas');",
+                                    "                    var dd = Ext.decode(getdataserver);",
+                                    "                    sto.loadRawData(dd, true);",
+                                    "",
+                                    "                    var v = Ext.create('login.view.userinfovew',{});",
+                                    "                    v.show();",
+                                    "                    this.getView().destroy();",
+                                    "                }",
+                                    "            }",
+                                    "        };",
+                                    "",
+                                    "        httpc.setRequestHeader('Content-Type','application/x-www-form-urlencoded');",
+                                    "        httpc.send(\"username=\"+username+\"&password=\"+password);"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onSignIn",
+                            "designerId": "fc810157-538a-4064-9a51-bcccc00ea88e"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 30,
+                        "layout|x": 40,
+                        "layout|y": 340,
+                        "text": "Sign Up",
+                        "width": 100
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "height": "auto",
+                        "width": "auto"
+                    },
+                    "name": "MyButton2",
+                    "designerId": "3bd4ff40-8bc5-42ed-8a57-1791986815fc",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onSignUp",
+                                "implHandler": [
+                                    "console.log('I am work');",
+                                    "var vv = Ext.create('login.view.pageSignup');",
+                                    "vv.show();",
+                                    "this.getView().destroy();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onSignUp",
+                            "designerId": "a1f65d1b-fc69-4548-9c47-bf7ddd09c820"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Img",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "alt": "ridoykj",
+                        "height": 140,
+                        "layout|x": 120,
+                        "layout|y": -3,
+                        "src": "ico/lock.png",
+                        "width": 140
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "src": "uri",
+                        "width": "auto",
+                        "alt": "string"
+                    },
+                    "name": "MyImg",
+                    "designerId": "ef661cf2-ba3a-4a0b-9d73-836cdfbda512"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "l_status",
+                        "layout|x": 120,
+                        "layout|y": 270,
+                        "text": "Status: "
+                    },
+                    "configAlternates": {
+                        "id": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string"
+                    },
+                    "name": "MyLabel",
+                    "designerId": "9c83b2df-63ed-4e29-9058-224c41ce8a81"
+                }
+            ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onLoginWinClose",
+                "implHandler": [
+                    "var v = Ext.create('login.view.MyViewport',{});",
+                    "v.show();"
+                ],
+                "name": "close",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onLoginWinClose",
+            "designerId": "8be24700-e810-474d-8059-2e8fcdb08c23"
+        }
+    ]
+}
