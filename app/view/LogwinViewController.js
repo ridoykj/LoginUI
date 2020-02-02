@@ -20,7 +20,6 @@ Ext.define('login.view.LogwinViewController', {
     onSignIn: function(button, e, eOpts) {
         var username = Ext.getCmp('i_userid').value;
         var password = Ext.getCmp('i_pass').value;
-        var getdata = 'hi ridoy';
 
         Ext.Ajax.request({
             url: 'php/api.php',
@@ -33,7 +32,6 @@ Ext.define('login.view.LogwinViewController', {
 
             success: function(response, opts) {
                 var getdataserver = response.responseText;
-                getdata = "thats it";
                 if(getdataserver === "rid777")
                 {
                     // >>>>>>>>>>>>>>>>> If Not Found or any error <<<<<<<<<<<<<<<<<
