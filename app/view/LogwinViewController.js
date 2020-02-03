@@ -22,9 +22,9 @@ Ext.define('login.view.LogwinViewController', {
         var password = Ext.getCmp('i_pass').value;
 
         Ext.Ajax.request({
-            url: 'php/api.php',
+            url: 'php/aapi.php',
             method: 'POST',
-            params: {'username': username, 'password': password },
+            params: {'request':'login', 'username': username, 'pass': password },
             headers:
             {
                 'Content-Type': 'application/x-www-form-urlencoded'

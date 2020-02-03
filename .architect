@@ -184,17 +184,17 @@
         },
         "controller": true,
         "resource": true,
-        "c675f488-473b-41f8-991d-693d25e83024": {
-            "id": "c675f488-473b-41f8-991d-693d25e83024",
+        "ef065ec3-f578-4086-adb2-bf0ca6ffd9ff": {
+            "id": "ef065ec3-f578-4086-adb2-bf0ca6ffd9ff",
             "cn": [
                 {
-                    "id": "3c7326f8-1aee-4396-bb9d-e768c7a858c6",
+                    "id": "b3a78e0c-d691-46fb-9bd3-20e08daed04c",
                     "cn": [
                         {
-                            "id": "12808fc5-b335-41c5-bf46-2c021cfd5d5a"
+                            "id": "42ba1bfd-a18c-44da-ba49-f82bb7c7ed8a"
                         },
                         {
-                            "id": "d1514fd9-81cb-4233-bfad-ad3b0a2bf8a2"
+                            "id": "df753cc4-d528-4287-87b7-6f847de88937"
                         }
                     ]
                 }
@@ -219,8 +219,8 @@
         "topInstance": null
     },
     "inspectorState": {
-        "topInstance": "4574d608-ccd7-43ef-89b4-a2ecb9a70dc1",
-        "selectedInstance": "fc810157-538a-4064-9a51-bcccc00ea88e"
+        "topInstance": "08f31d68-7111-44cc-88b8-749ddab2c244",
+        "selectedInstance": "ab2aa5e1-baf4-483c-b0ff-770c00c538ba"
     },
     "editMode": "code",
     "userSettings": {

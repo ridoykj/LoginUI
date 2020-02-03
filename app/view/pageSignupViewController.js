@@ -36,9 +36,9 @@ Ext.define('login.view.pageSignupViewController', {
         else{
 
             Ext.Ajax.request({
-                url: 'php/signup.php',
+                url: 'php/aapi.php',
                 method: 'POST',
-                params: {'userid': username, 'password': password },
+                params: {'request':'create','userid': username, 'pass': password },
                 headers:
                 {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -67,9 +67,9 @@ Ext.define('login.view.pageSignupViewController', {
         var username = Ext.getCmp('is_userid').value;
 
         Ext.Ajax.request({
-            url: 'php/query.php',
+            url: 'php/aapi.php',
             method: 'POST',
-            params: {'userid': username},
+            params: {'request':'check','userid': username},
             headers:
             {
                 'Content-Type': 'application/x-www-form-urlencoded'
